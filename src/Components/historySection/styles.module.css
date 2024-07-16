@@ -1,0 +1,10 @@
+.historySectionContainer{
+  background-color: #b7081a;
+  width: 100vw;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  padding: 0vh 2.5vw 4vh 2.5vw;
+  position: relative;
+    z-index: 2;
+}

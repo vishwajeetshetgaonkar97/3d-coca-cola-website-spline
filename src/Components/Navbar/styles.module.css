@@ -1,0 +1,26 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0vh 2vw;
+    position: fixed;
+    width: 100vw;
+    z-index: 99;
+}
+
+.logo{
+    height: 14vh;
+    width: 16vh;
+    filter: brightness(0) invert(1);
+}
+
+.navList{
+    display: flex;
+}
+
+.navListItems{
+    list-style: none;
+    padding: 0 0.7vw;
+    text-transform: capitalize;
+    font-size: 2.6vh;
+}

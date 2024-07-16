@@ -1,4 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+::-webkit-scrollbar {
+  width: 5px;
+  
+}
+
+::-webkit-scrollbar-track {
+  background: #e60c2d92; 
+  
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffffab; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; 
+}
 :root {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",

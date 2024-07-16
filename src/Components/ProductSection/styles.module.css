@@ -1,0 +1,59 @@
+.introSection{
+  background-color: rgb(232, 228, 228);
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index:7;
+  padding: 0vh 7vw 4vh 7vw;
+  background-color: #b7081a;
+  background-color: #b7081a00;
+}
+
+
+.header{
+  font-size: 12.5vh;
+  text-align: center;
+  font-weight: 500;
+ 
+  color: #ec0628e2;
+  color: #ffffff;
+  text-transform: capitalize;
+  padding-bottom: 7vh;
+  
+  font-family: "Lobster", sans-serif;
+}
+
+.description{
+  font-size: 2.8vh;
+  text-align: center;
+  font-weight: 700;
+  color: #000000d8;
+  color: rgb(232, 228, 228);;
+  padding-top: 4vh;
+  padding-bottom: 15vh;
+  line-height: 150%;
+  text-align: left;
+}
+
+.videoSection{
+  height: 94vh;
+  width: calc(94vh * 16/9);
+  border-radius: 2vh;
+}
+
+.logoSection{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productsImage{
+  background-color: aliceblue;
+  border-radius: 1vh;
+  padding: 2vh;
+  margin: 1vh 1.2vh;
+}

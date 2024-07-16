@@ -1,0 +1,33 @@
+.introSection{
+    background-color: rgba(232, 228, 228, 0);
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0 6vw;
+    padding-left: 24vw;
+    padding-top: 7vh;
+    background-image: url('../../Assets/sustainability.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 2;
+  }
+
+  .header{
+    font-size: 14vh;
+    text-align: center;
+    font-weight: 500;
+    color: #153a31;
+    text-transform: capitalize;
+    padding-top: 5vh;
+    font-family: "Lobster", sans-serif;
+  }
+
+  .description{
+    font-size: 2.8vh;
+    text-align: center;
+    font-weight: 700;
+    color: #000000d8;
+    padding: 3vh 8vw 0 8vw;
+    line-height: 150%;
+  }
