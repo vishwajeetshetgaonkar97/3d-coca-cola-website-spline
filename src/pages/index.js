@@ -17,27 +17,24 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [hasSplineError, setHasSplineError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("Window scrollY:", window.scrollY); // Log scroll position
-      if (window.scrollY > 5) {
-        setIsScrolled(true);
-        console.log("Scrolled set to true"); // Log state change
-      } else {
-        setIsScrolled(false);
-        console.log("Scrolled set to false"); // Log state change
-      }
+      React.startTransition(() => {
+        setIsScrolled(window.scrollY > 5);
+      });
     };
 
     const handleResize = () => {
-      const mobile = window.innerWidth <= 768;
-      setIsMobile(mobile);
-      console.log("Is mobile:", mobile); // Log resize detection
+      React.startTransition(() => {
+        setIsMobile(window.innerWidth <= 768);
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
+
     handleResize(); // Check initial window size
 
     return () => {
@@ -45,6 +42,10 @@ export default function Home() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const handleSplineError = () => {
+    setHasSplineError(true);
+  };
 
   return (
     <>
@@ -54,7 +55,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main}`}>
+      <main className={styles.main}>
         {!isMobile && (
           <AnimatedCursor
             innerSize={18}
@@ -67,18 +68,19 @@ export default function Home() {
         )}
         <Navbar />
         <div className={styles.introDummy}></div>
-        <div className={`${styles.spline}`}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Spline scene="https://prod.spline.design/cW9T8nT4Aoyqpwgd/scene.splinecode" />
-          </Suspense>
+        <div className={styles.spline}>
+          {!hasSplineError ? (
+            <Suspense fallback={<div>Loading...</div>}>
+              <Spline scene="https://prod.spline.design/cW9T8nT4Aoyqpwgd/scene.splinecode" onError={handleSplineError} />
+            </Suspense>
+          ) : (
+            <div>Failed to load Spline component.</div>
+          )}
         </div>
-        <div
-        className={`${styles.scrollIcon} ${isScrolled ? styles.hidden : ""}`}
-        >
+        <div className={`${styles.scrollIcon} ${isScrolled ? styles.hidden : ""}`}>
           <div className={styles.mouse}></div>
         </div>
         <IntroSection />
-        {/* <HistorySection/> */}
         <Showcase />
         <ProductSection />
         <Footer />
@@ -86,4 +88,3 @@ export default function Home() {
     </>
   );
 }
-
