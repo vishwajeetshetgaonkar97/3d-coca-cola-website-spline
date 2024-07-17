@@ -57,3 +57,23 @@
   padding: 2vh;
   margin: 1vh 1.2vh;
 }
+
+@media only screen and (max-width: 800px) {
+
+  .header {
+    font-size: 8.5vh;
+    padding-top: 0vh;
+  }
+  .logoSection{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .productsImage{
+   height: 18.5vh;
+   width: 18.5vh;
+   padding: 1vh;
+  margin: 0.51vh 0.6vh;
+  }
+}

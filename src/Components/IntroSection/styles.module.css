@@ -1,5 +1,4 @@
-.introSectionContainer{
-  background-color: #b7081a;
+.introSectionContainer {
   background-color: #b7081a00;
   width: 100vw;
   display: flex;
@@ -8,59 +7,86 @@
   flex-wrap: wrap;
   padding: 0vh 2.5vw 10vh 2.5vw;
   position: relative;
-    z-index: 7;
+  z-index: 7;
 }
 
-.sectionImage{
+.sectionImage {
   height: 70vh;
   width: auto;
   border-radius: 2vh;
 }
 
-.introSection{
-    width: 100%;
-    min-height: 50vh;
-    /* margin: 0 2vw; */
-    padding: 0 10vw 0 0;
-    padding-left: 42vw;
-    padding-top: 0vh;
- 
-    /* position: relative; */
-    /* z-index: 2; */
-    border-radius: 2vh;
+.introSection {
+  width: 100%;
+  min-height: 50vh;
+  padding-left: 42vw;
   background-color: #b7081a00;
+  border-radius: 2vh;
+}
+
+.introSectionLeft {
+  padding-left: 4vw;
+  padding-right: 40vw;
+  padding-top: 5vh;
+}
+
+.introSectionLeft .sectionImage {
+  height: 80vh;
+}
+
+.header {
+  font-size: 10.5vh;
+  text-align: left;
+  font-weight: 500;
+  color: #ffffff;
+  text-transform: capitalize;
+  padding-top: 5vh;
+  font-family: "Lobster", sans-serif;
+}
+
+.description {
+  font-size: 2.8vh;
+  font-weight: 700;
+  color: rgb(232, 228, 228);
+  padding-top: 4vh;
+  padding-bottom: 15vh;
+  line-height: 150%;
+  text-align: left;
+}
+
+@media only screen and (max-width: 800px) {
+  .introSectionContainer {
+    padding: 0vh 1.5vw 1vh 1.5vw;
   }
 
-  .introSectionLeft{
-    padding-left: 4vw;
-    padding-right: 40vw;
-    padding-top: 5vh;
+  .sectionImage {
+    height: auto;
+    width: 100%;
   }
 
-  .introSectionLeft .sectionImage{
-    height: 80vh;
+  .introSection {
+    padding: 0;
+    padding-left: 0;
   }
 
-  .header{
-    font-size: 10.5vh;
+  .introSectionLeft {
+    padding: 0;
+  }
+
+  .introSectionLeft .sectionImage {
+    height: auto;
+    width: 100%;
+  }
+
+  .header {
+    font-size: 8.5vh;
     text-align: center;
-    font-weight: 500;
-    color: #e60c2de4;
-    color: #ffffff;
-    text-transform: capitalize;
-    padding-top: 5vh;
-    font-family: "Lobster", sans-serif;
-    text-align: left;
+    padding-top: 2vh;
   }
 
-  .description{
-    font-size: 2.8vh;
+  .description {
+    padding-bottom: 7vh;
     text-align: center;
-    font-weight: 700;
-    color: #000000d8;
-    color: rgb(232, 228, 228);;
-    padding-top: 4vh;
-    padding-bottom: 15vh;
-    line-height: 150%;
-    text-align: left;
+    
   }
+}

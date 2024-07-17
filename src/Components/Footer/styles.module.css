@@ -7,3 +7,10 @@
     z-index: 9;
     font-size: 2vh;
 }
+
+@media only screen and (max-width: 800px) {
+    .footer{
+        text-align: center;
+        padding-top: 0;
+    }
+}

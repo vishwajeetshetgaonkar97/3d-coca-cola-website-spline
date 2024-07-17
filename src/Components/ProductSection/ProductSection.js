@@ -29,8 +29,8 @@ const ProductSection = () => {
               src={image}
               className={styles.productsImage}
               alt={`Product ${index + 1}`}
-              width={200} // Set width as per your design needs
-              height={200} // Set height as per your design needs
+              width={200} 
+              height={200} 
             />
           </div>
         ))}
