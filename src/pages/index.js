@@ -6,9 +6,9 @@ import Navbar from "@/Components/Navbar/Navbar";
 import IntroSection from "@/Components/IntroSection/IntroSection";
 import ProductSection from "@/Components/ProductSection/ProductSection";
 import Showcase from "@/Components/Showcase/Showcase";
-import AnimatedCursor from "react-animated-cursor"
+import AnimatedCursor from "react-animated-cursor";
 import Footer from "@/Components/Footer/Footer";
-import ScrollAnimation from 'react-animate-on-scroll';
+import ScrollAnimation from "react-animate-on-scroll";
 
 const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
@@ -16,18 +16,33 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
+      console.log("Window scrollY:", window.scrollY); // Log scroll position
       if (window.scrollY > 5) {
         setIsScrolled(true);
+        console.log("Scrolled set to true"); // Log state change
       } else {
         setIsScrolled(false);
+        console.log("Scrolled set to false"); // Log state change
       }
     };
 
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      console.log("Is mobile:", mobile); // Log resize detection
+    };
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Check initial window size
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -40,31 +55,35 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`}>
-      <AnimatedCursor  innerSize={18}
-      outerSize={18}  color='240, 230, 230'  outerAlpha={0.2}
-      innerScale={0.7}
-      outerScale={5} />
+        {!isMobile && (
+          <AnimatedCursor
+            innerSize={18}
+            outerSize={18}
+            color="240, 230, 230"
+            outerAlpha={0.2}
+            innerScale={0.7}
+            outerScale={5}
+          />
+        )}
         <Navbar />
         <div className={styles.introDummy}></div>
         <div className={`${styles.spline}`}>
           <Suspense fallback={<div>Loading...</div>}>
-            <Spline
-              scene="https://prod.spline.design/cW9T8nT4Aoyqpwgd/scene.splinecode"
-            />
+            <Spline scene="https://prod.spline.design/cW9T8nT4Aoyqpwgd/scene.splinecode" />
           </Suspense>
         </div>
-        <div className={`${styles.scrollIcon} ${isScrolled ? styles.hidden : ""}`}>
+        <div
+        className={`${styles.scrollIcon} ${isScrolled ? styles.hidden : ""}`}
+        >
           <div className={styles.mouse}></div>
         </div>
         <IntroSection />
-       
         {/* <HistorySection/> */}
-     
         <Showcase />
-      
         <ProductSection />
-        <Footer/>
+        <Footer />
       </main>
     </>
   );
 }
+
