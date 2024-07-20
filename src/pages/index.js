@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense, useCallback } from "react";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Navbar from "@/Components/Navbar/Navbar";
@@ -8,7 +8,6 @@ import ProductSection from "@/Components/ProductSection/ProductSection";
 import Showcase from "@/Components/Showcase/Showcase";
 import AnimatedCursor from "react-animated-cursor";
 import Footer from "@/Components/Footer/Footer";
-import ScrollAnimation from "react-animate-on-scroll";
 
 const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
@@ -26,10 +25,14 @@ export default function Home() {
       });
     };
 
+    let resizeTimeout;
     const handleResize = () => {
-      React.startTransition(() => {
-        setIsMobile(window.innerWidth <= 768);
-      });
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        React.startTransition(() => {
+          setIsMobile(window.innerWidth <= 768);
+        });
+      }, 150);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -43,9 +46,9 @@ export default function Home() {
     };
   }, []);
 
-  const handleSplineError = () => {
+  const handleSplineError = useCallback(() => {
     setHasSplineError(true);
-  };
+  }, []);
 
   return (
     <>
@@ -70,8 +73,11 @@ export default function Home() {
         <div className={styles.introDummy}></div>
         <div className={styles.spline}>
           {!hasSplineError ? (
+
+
+
             <Suspense fallback={<div>Loading...</div>}>
-              <Spline scene="https://prod.spline.design/cW9T8nT4Aoyqpwgd/scene.splinecode" onError={handleSplineError} />
+              <Spline scene={isMobile?"https://prod.spline.design/KXrq5-wwjBYGFkQD/scene.splinecode":"https://prod.spline.design/cW9T8nT4Aoyqpwgd/scene.splinecode"} onError={handleSplineError} />
             </Suspense>
           ) : (
             <div>Failed to load Spline component.</div>
