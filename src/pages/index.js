@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <>
      <Head>
-        <title>Vishwajeet Shetgaonkar - UI/UX Front End Developer</title>
+        <title>Vishwajeet Shetgaonkar</title>
         <meta name="description" content="Vishwajeet Shetgaonkar, a skilled UI/UX Designer and Front End Developer specializing in ReactJS and the MERN stack. Explore my portfolio and projects." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="Vishwajeet Shetgaonkar, UI/UX Designer, Front End Developer, ReactJS Specialist, MERN Stack Developer" />
